@@ -4,8 +4,8 @@ class TokenCategory(Enum):
     Id, Fun, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, OpArAd, OpArMult, \
     OpArdiv, OpArMod, OpArExp, OpReD, OpReI, OpLogAnd, OpLogOr, OpLogNot,               \
     OpConcac, OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInDo, BeginP, EndP,        \
-    BeginC, EndC, BeginCh, EndCh, ConstInt, ConstFlaot, ConstBool, ConstChar, ConstString, SepV,   \
-    SepPV, IntTo, IntRate, Out, In, Global, SepPont, EOF = list(range(50))
+    BeginC, EndC, BeginCh, EndCh, ConstInt, ConstBool, ConstChar, ConstString, SepV,   \
+    SepPV, IntTo, IntRate, Out, In, SepPont, EOF = list(range(50))
 
 class Token() :
     def __init__(self, token, value, line, column):
