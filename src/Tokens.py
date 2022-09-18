@@ -1,11 +1,11 @@
 from enum import Enum
 from Regex import  *
 class TokenCategory(Enum):
-    Id, Fun, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, OpArAd, OpArMult, \
-    OpArdiv, OpArMod, OpArExp, OpReD, OpReI, OpLogAnd, OpLogOr, OpLogNot,               \
+    Id, Fun, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, Type, Local, \
+    OpArAd, OpArMult, OpArdiv, OpArMod, OpArExp, OpReD, OpReI, OpLogAnd, OpLogOr, OpLogNot,\
     OpConcac, OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInDo, BeginP, EndP,        \
     BeginC, EndC, BeginCh, EndCh, ConstInt, ConstBool, ConstChar, ConstString, SepV,   \
-    SepPV, IntTo, IntRate, Out, In, SepPont, EOF = list(range(50))
+    SepPV, IntTo, IntRate, Out, In, SepPont, EOF = list(range(43))
 
 class Token() :
     def __init__(self, token, value, line, column):
@@ -26,18 +26,20 @@ def defineTokenCategory(type) :
     if type == 'char' : return  TokenCategory.TypeChar
     if type == 'String' : return TokenCategory.TypeString
     if type == 'const' : return TokenCategory.TypeConst
+    if type == 'type': return TokenCategory.Type
+    if type == 'local': return TokenCategory.Local
     if type == '+' or type == '-' : return TokenCategory.OpArAd
     if type == '*' : return  TokenCategory.OpArMult
     if type == '/' : return TokenCategory.OpArdiv
     if type == '%' : return TokenCategory.OpArMod
     if type == '^' : return  TokenCategory.OpArExp
     if type == '>' or type == '>=' or type == '<' or type == '<=' : return  TokenCategory.OpReD
-    if type == '=' or type == '<>' : return  TokenCategory.OpReI
+    if type == '==' or type == '<>' : return  TokenCategory.OpReI
     if type == 'andalso' : return TokenCategory.OpLogAnd
     if type == 'orelse' : return TokenCategory.OpLogOr
     if type == 'not' : return TokenCategory.OpLogNot
     if type == '++' : return TokenCategory.OpConcac
-    if type == ':=' : return TokenCategory.OpAtr
+    if type == '=' : return TokenCategory.OpAtr
     if type == 'if' : return TokenCategory.InsSIf
     if type == 'then' : return  TokenCategory.InsSThen
     if type == 'else' : return  TokenCategory.InsSElse

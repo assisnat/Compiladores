@@ -1,4 +1,4 @@
-from Tokens import *  #só copiei e joguei aqui
+from Tokens import *
 
 class reader():
     def __init__(self, file):
@@ -28,7 +28,7 @@ class reader():
     def findToken(self):
         atomics = [' ', '{', '}', '(', ')', '[', ']', ':', '\n', ';', '+', '-', '*', '/', '%', '^', ',', '>', '<', '=', '!']
         composites = ['>=', '<=', '==', '!=', '++']
-        isString, isComment, isCharacter, newtoken = False, False, False, ''
+        isString,isCharacter, newtoken = False,False, ''
         inicialCollum = self.collumn
         if self.Line() == '' :
             return Token(defineTokenCategory(''), newtoken, self.line, inicialCollum)
@@ -41,10 +41,8 @@ class reader():
         lines = self.actualLine[self.collumn:]
 
         for character in lines :
-            if isComment :
-                continue
 
-            elif character == ' ' and not isString and not isCharacter and not isComment:
+            if character == ' ' and not isString and not isCharacter:
                 self.collumn += 1
                 if newtoken == '' :
                     continue
@@ -62,10 +60,6 @@ class reader():
 
             elif newtoken == '"' :
                 isString = True
-
-            elif newtoken + character == '//' :
-                isComment = True
-                continue
 
             elif newtoken + character in composites and not isString and not isCharacter:
                 self.collumn += 1
