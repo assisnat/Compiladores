@@ -16,8 +16,6 @@ class Token() :
     def __str__(self):
         return  "              [%04d, %04d] (%04d, %10s) {%s}" %(self.line+1,self.column+1, self.token.value, self.token.name, self.value)
 
-
-
 def defineTokenCategory(type) :
     if type == 'output' : return TokenCategory.Out
     if type == 'input' : return TokenCategory.In
