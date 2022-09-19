@@ -26,8 +26,8 @@ class reader():
         return k
 
     def findToken(self):
-        atomics = [' ', '{', '}', '(', ')', '[', ']', ':', '\n', ';', '+', '-', '*', '/', '%', '^', ',', '>', '<', '=']
-        composites = ['>=', '<=', '==', '<>']
+        atomics = [' ', '{', '}', '(', ')', '[', ']', ':', '\n', ';', '+', '-', '*', '/', '%', '^', ',', '>', '<', '=','~','|']
+        composites = ['>=', '<=', '==', '<>','=>','::']
         isString, isCharacter, newtoken = False, False, ''
         initialColumn = self.column
         if self.Line() == '' :

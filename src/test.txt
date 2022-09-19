@@ -1,0 +1,20 @@
+fun is_large(x : int) = if x > 37 then true else false;
+fun first_elem (x::xs) = x;
+val saness = 49; 
+val funcionou = "nseikkkkkk";
+hd [2,4,56,109];
+tl [2,4,56,109];
+val int_division  = 14 div 4;
+val int_remainder = 14 mod 4;
+fun is_large x = x > 37;  
+val got_milk = true;
+val got_bread = false;
+val has_breakfast = got_milk andalso got_bread;  
+val has_something = got_milk orelse got_bread;  
+val is_sad = not(has_something); 
+val is_sad = not has_something;
+val pays_same_rent = rent = 1300;
+val is_wrong_phone_no = phone_no <> 5551337
+val negative_rent = ~rent 
+
+val guest_list = [ "Mom", "Dad" ] @ [ "Aunt", "Uncle" ];

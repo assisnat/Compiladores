@@ -1,7 +1,7 @@
-from Analyzer import * #só copiei e colei
+from Analyzer import *
 import sys
 
-filename = sys.argv[1]
+filename = 'test.txt'
 file = open(filename, "r")
 
 myreader = reader(file)
