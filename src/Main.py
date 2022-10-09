@@ -1,4 +1,4 @@
-from Analyzer import *
+from lexicalAnalyzer import *
 import sys
 
 filename = 'test.txt'
