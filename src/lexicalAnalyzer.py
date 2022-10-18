@@ -8,6 +8,7 @@ class reader():
         self.actualLine = file.readline()
         print("%04d" %(self.line+1), end='  ')
         print(self.actualLine, end = '')
+        self.errors = []
 
     def Line(self):
         return self.actualLine[self.column:]
@@ -72,7 +73,9 @@ class reader():
             elif character in atomics and not isString and not isCharacter:
                 if newtoken != '':
                     return Token(defineTokenCategory(newtoken), newtoken, self.line, initialColumn)
-
+            else:
+                self.errors.append((newtoken,self.line, self.column))
+            
             newtoken += character
             self.column += 1
 

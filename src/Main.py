@@ -9,6 +9,5 @@ k = myreader.nextToken()
 
 while k.token.value != TokenCategory.EOF.value :
     print(k)
-    k = myreader.nextToken()
-
+    k = myreader.nextToken()  
 print(k)

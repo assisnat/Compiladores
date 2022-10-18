@@ -3,10 +3,9 @@ from Regex import  *
 class TokenCategory(Enum):
     Id, Fun,Fn, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, Type, Local, Infix,Nonfix,End,Of,\
     Bar,Arrow,OpArAd, DoubleP,OpMinus,OpArMult, OpArdiv, OpArMod, OpArExp, OpReD, OpReI, And,OpLogAndAlso, OpLogOr, OpLogNot,\
-    At,Abs,Mod, Div,Concat, Explode, Implode, SubString, Hd, Null, Map, Chr, Ord, Str, Size, Tl, Rev, Length,\
-    OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInCase,InsInDo, BeginP, EndP,        \
+    At,Abs,Mod, Div, OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInCase, InsInDo, BeginP, EndP,        \
     BeginC, EndC, BeginCh, EndCh, ConstInt, ConstBool, ConstChar, ConstString, SepV,   \
-    SepPV, In, SepPont, EOF = list(range(70))
+    SepPV, In, SepPont, EOF, Error= list(range(57))
 
 class Token() :
     def __init__(self, token, value, line, column):
@@ -49,20 +48,6 @@ def defineTokenCategory(type) :
     if type == '>' or type == '>=' or type == '<' or type == '<=' : return  TokenCategory.OpReD
     if type == '==' or type == '<>' : return  TokenCategory.OpReI
     if type == 'andalso' : return TokenCategory.OpLogAndAlso
-    if type == 'concat': return TokenCategory.Concat
-    if type == 'explode': return TokenCategory.Explode
-    if type == 'implode': return TokenCategory.Implode
-    if type == 'substring': return TokenCategory.SubString
-    if type == 'hd': return TokenCategory.Hd
-    if type == 'null': return TokenCategory.Null
-    if type == 'map': return TokenCategory.Map
-    if type == 'chr': return TokenCategory.Chr
-    if type == 'ord': return TokenCategory.Ord
-    if type == 'str': return TokenCategory.Str
-    if type == 'size': return TokenCategory.Size
-    if type == 'tl': return TokenCategory.Tl
-    if type == 'rev': return TokenCategory.Rev
-    if type == 'length': return TokenCategory.Length
     if type == 'and': return TokenCategory.And
     if type == 'orelse' : return TokenCategory.OpLogOr
     if type == 'not' : return TokenCategory.OpLogNot
@@ -88,4 +73,4 @@ def defineTokenCategory(type) :
     if type == ';' : return TokenCategory.SepPV
     if type == ':' : return TokenCategory.SepPont
     if type == "" : return TokenCategory.EOF
-    return None
+    return TokenCategory.Error
