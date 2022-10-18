@@ -4,6 +4,7 @@ val saness = 49;
 val funcionou = "nseikkkkkk";
 hd [2,4,56,109];
 tl [2,4,56,109];
+'
 val int_division  = 14 div 4;
 val int_remainder = 14 mod 4;
 fun is_large x = x > 37;  

@@ -1,11 +1,11 @@
 from enum import Enum
 from Regex import  *
 class TokenCategory(Enum):
-    Id, Fun,Fn, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, Type, Local, Infix,Nonfix,End,Of,\
-    Bar,Arrow,OpArAd, DoubleP,OpMinus,OpArMult, OpArdiv, OpArMod, OpArExp, OpReD, OpReI, And,OpLogAndAlso, OpLogOr, OpLogNot,\
-    At,Abs,Mod, Div, OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInCase, InsInDo, BeginP, EndP,        \
-    BeginC, EndC, BeginCh, EndCh, ConstInt, ConstBool, ConstChar, ConstString, SepV,   \
-    SepPV, In, SepPont, EOF, Error= list(range(57))
+    Id, Fun,Fn, Val, TypeInt, TypeBool, TypeChar, TypeString, TypeConst, Type, List, Local, Infix, Nonfix, End, Of,\
+    Bar, Arrow, OpArAd, DoubleP, OpMinus, OpArMult, OpArdiv, OpArMod, OpArExp, OpReD, OpReI, And, OpLogAndAlso, OpLogOr, OpLogNot,\
+    At, Abs, Mod, Div, OpAtr, InsSIf, InsSThen, InsSElse, InsInWh, InsInCase, InsInDo, BeginP, EndP,        \
+    BeginC, EndC, BeginCh, EndCh, ConstInt, ConstBool, ConstChar, ConstString, Asp, SepV,   \
+    SepPV, In, SepPont, EOF, Error= list(range(59))
 
 class Token() :
     def __init__(self, token, value, line, column):
@@ -22,9 +22,10 @@ def defineTokenCategory(type) :
     if type == 'int' : return  TokenCategory.TypeInt
     if type == 'bool' : return TokenCategory.TypeBool
     if type == 'char' : return  TokenCategory.TypeChar
-    if type == 'String' : return TokenCategory.TypeString
+    if type == 'string' : return TokenCategory.TypeString
     if type == 'const' : return TokenCategory.TypeConst
     if type == 'type': return TokenCategory.Type
+    if type == 'list': return TokenCategory.List
     if type == 'local': return TokenCategory.Local
     if type == 'end': return TokenCategory.End
     if type == 'of': return TokenCategory.Of
@@ -72,5 +73,6 @@ def defineTokenCategory(type) :
     if type == ',' : return  TokenCategory.SepV
     if type == ';' : return TokenCategory.SepPV
     if type == ':' : return TokenCategory.SepPont
+    if type == "'" : return TokenCategory.Asp
     if type == "" : return TokenCategory.EOF
     return TokenCategory.Error
